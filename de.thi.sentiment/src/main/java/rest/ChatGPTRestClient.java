@@ -1,5 +1,6 @@
 package rest;
 
+import de.thi.sentiment.ChatGPTResponse;
 import de.thi.sentiment.ComplaintRequest;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
@@ -15,6 +16,6 @@ public interface ChatGPTRestClient {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    String post(ComplaintRequest complaintRequest, @HeaderParam("Authorization") String bearer);
+    ChatGPTResponse post(ComplaintRequest complaintRequest, @HeaderParam("Authorization") String bearer);
 
 }

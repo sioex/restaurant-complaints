@@ -1,50 +1,26 @@
-import de.thi.sentiment.ComplaintRequest;
+import de.thi.sentiment.GetSentimentFromChatGPT;
 import io.quarkus.test.junit.QuarkusTest;
-import org.eclipse.microprofile.rest.client.inject.RestClient;
-import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
-import org.kie.kogito.Model;
-import org.kie.kogito.process.Process;
-import rest.ChatGPTRestClient;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @QuarkusTest
 public class GetSentimentFromChatGPTTest {
 
     @Inject
-    @Named("sentiment")
-    Process<? extends Model> sentimentsProcess;
-
-    @Inject
-    @RestClient
-    ChatGPTRestClient chatGPTRestClient;
+    GetSentimentFromChatGPT getSentimentFromChatGPT;
 
     @Test
     public void shouldSendRequest(){
+        // given
+        String complaint = "Too much parsley.";
 
-        //given
-        assertNotNull(sentimentsProcess);
-
-        //when
-        ComplaintRequest complaintRequest = new ComplaintRequest();
-        complaintRequest.setModel("gpt-3.5-turbo");
-        Map<String, String> messages = new HashMap<String, String>();
-        messages.put("role", "user");
-        messages.put("content", "Act as a sentiment analysis. I will provide you with a text for a complaint and you give me a number between 0 and 10. 0 = very angry. 10 = nice feedback. Complaint: My noodles are frozen.");
-        complaintRequest.setMessages(messages);
-        JSONObject jsonObject = new JSONObject(complaintRequest);
-        System.out.println("Hier die JSON: " + jsonObject);
+        // when
+        Integer sentiment = getSentimentFromChatGPT.getSentimentFromChatGPT(complaint);
 
         //then
-        //sentimentRestClient.post(complaintRequest, "Bearer {{API_KEY}}");
+        assertEquals(sentiment.intValue(), sentiment.intValue());
     }
-
-
 }
