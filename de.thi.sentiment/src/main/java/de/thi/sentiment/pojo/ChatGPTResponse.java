@@ -1,4 +1,4 @@
-package de.thi.sentiment;
+package de.thi.sentiment.pojo;
 
 import java.util.HashMap;
 import java.util.List;

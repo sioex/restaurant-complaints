@@ -1,5 +1,8 @@
 package de.thi.sentiment;
 
+import de.thi.sentiment.pojo.ChatGPTResponse;
+import de.thi.sentiment.pojo.Choices;
+import de.thi.sentiment.pojo.ComplaintRequest;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import rest.ChatGPTRestClient;
 

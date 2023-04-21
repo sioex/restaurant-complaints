@@ -1,7 +1,7 @@
 package rest;
 
-import de.thi.sentiment.ChatGPTResponse;
-import de.thi.sentiment.ComplaintRequest;
+import de.thi.sentiment.pojo.ChatGPTResponse;
+import de.thi.sentiment.pojo.ComplaintRequest;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 import javax.enterprise.context.ApplicationScoped;

@@ -1,4 +1,4 @@
-package de.thi.sentiment;
+package de.thi.sentiment.pojo;
 
 import java.util.List;
 import java.util.Map;
